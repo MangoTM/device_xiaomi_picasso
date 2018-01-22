@@ -210,3 +210,6 @@ BOARD_SEPOLICY_M4DEFS += \
 
 # Power
 #TARGET_TAP_TO_WAKE_NODE := "/sys/touchpanel/double_tap"
+
+CONFIG_ACS := true
+
