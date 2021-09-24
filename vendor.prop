@@ -201,6 +201,12 @@ telephony.lteOnCdmaDevice=1
 ro.soc.manufacturer=Qualcomm
 ro.soc.model=SM7250
 
+# System
+persist.sys.binary_xml=false
+persist.service.lgospd.enable=0
+persist.service.pcsync.enable=0
+ro.config.dha_tunnable=1
+
 
 # IMS
 persist.vendor.radio.enable_temp_dds=true
