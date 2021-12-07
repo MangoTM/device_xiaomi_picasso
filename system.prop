@@ -175,3 +175,6 @@ persist.wm.enable_remote_keyguard_animation=0
 ro.launcher.blur.appLaunch=0
 
 persist.sys.mcd_config_file=/system/etc/mcd_default.conf
+
+# Disable vsync for cpu rendered apps
+debug.cpurend.vsync=false
