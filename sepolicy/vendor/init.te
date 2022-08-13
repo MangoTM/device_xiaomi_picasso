@@ -17,3 +17,4 @@ allow init vendor_configs_file:file mounton;
 allow vendor_init default_prop:file read;
 allow vendor_init device:chr_file getattr;
 allow vendor_init persist_debug_prop:file read;
+allow init proc:file write;

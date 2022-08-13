@@ -10,3 +10,4 @@ dontaudit vdc self:capability kill;
 dontaudit odrefresh self:capability { kill };
 
 dontaudit toolbox self:capability { kill };
+dontaudit kernel self:capability kill;

@@ -30,3 +30,7 @@ allow mi_thermald {
 } rw_file_perms;
 
 set_prop(mi_thermald, thermal_normal_prop)
+
+allow mi_thermald vendor_default_prop:property_service set;
+allow mi_thermald vendor_file:file entrypoint;
+

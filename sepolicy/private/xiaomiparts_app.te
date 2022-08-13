@@ -41,3 +41,4 @@ allow xiaomiparts_app content_capture_service:service_manager find;
 allow xiaomiparts_app game_service:service_manager find;
 #allow xiaomiparts_app hint_service:service_manager find;
 #allow xiaomiparts_app media_communication_service:service_manager find;
+allow xiaomiparts_app hint_service:service_manager find;
