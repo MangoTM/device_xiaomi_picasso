@@ -550,13 +550,7 @@
                 <string ...>M -5,0 L -5,10 L 5,10 L 5,0 Z @dp</string>
          @see https://www.w3.org/TR/SVG/paths.html#PathData
          -->
-    <string translatable="false" name="config_mainBuiltInDisplayCutout">
-         M -200,28
-         A 1,1,0,0,0,-200,92
-         L -82,92
-         A 1,1,0,0,0,-82,28
-         Z@right
-    </string>
+    <string translatable="false" name="config_mainBuiltInDisplayCutout">M 0,0 H -236 V 95 H 0 V 0 Z@right</string>
 
     <string translatable="false" name="config_mainBuiltInDisplayCutoutRectApproximation">
          M 0,0 H -236 V 95 H 0 V 0 Z@right
@@ -577,6 +571,8 @@
 
     <!-- Whether device has fingerprint on power button -->
     <bool name="config_powerButtonFingerprint">true</bool>
+
+
 
     <!-- The default journal mode to use use when Write-Ahead Logging is not active.
          Choices are: OFF, DELETE, TRUNCATE, PERSIST and MEMORY.
@@ -621,8 +617,6 @@
     <integer name="config_navBarInteractionMode">2</integer>
     
     <!-- Path to fast charging status file to detect whether an oem fast charger is active -->
-    <string name="config_oemFastChargerStatusPath" translatable="false">/sys/class/power_supply/bms/fastcharge_mode</string>
-    <!-- Exempt ImsService from privacy (location) indicators -->
     <string name="config_systemAudioIntelligence" translatable="false">org.codeaurora.ims</string>
     
     <!-- The default value for transition animation scale found in developer settings.
@@ -638,6 +632,23 @@
     <!-- Adaptive Charging -->
     <bool name="config_supportAdaptiveCharging">true</bool>
     
+    <!-- Indicates whether device has a power button fingerprint sensor. -->
+    <bool name="config_is_powerbutton_fps" translatable="false" >true</bool>
+
+    <!-- An array of arrays of side fingerprint sensor properties relative to each display.
+         Note: this value is temporary and is expected to be queried directly
+         from the HAL in the future. -->
+    <array name="config_sfps_sensor_props" translatable="false">
+        <item>@array/config_sfps_sensor_props_0</item>
+    </array>
+
+    <array name="config_sfps_sensor_props_0" translatable="false">
+        <item>local:4630946687422888065</item> <!--item>displayId</item-->
+        <item>1000</item> <!--item>sensorLocationX</item-->
+        <item>1000</item> <!--item>sensorLocationY</item-->
+        <item>200</item> <!--item>sensorRadius</item-->
+    </array>
+
 
    <!-- Flag indicating whether the surface flinger has limited
          alpha compositing functionality in hardware.  If set, the window
