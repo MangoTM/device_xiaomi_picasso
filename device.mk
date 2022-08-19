@@ -305,10 +305,10 @@ PRODUCT_PACKAGES += \
 
 # IPACM
 PRODUCT_PACKAGES += \
+    ipacm \
+    IPACM_cfg.xml \
     libipanat \
     liboffloadhal
-
-$(call inherit-product, vendor/qcom/opensource/data-ipa-cfg-mgr/ipacm_vendor_product.mk)
 
 # IR
 PRODUCT_PACKAGES += \
@@ -499,7 +499,7 @@ PRODUCT_BOOT_JARS += \
     telephony-ext
 
 # Tetheroffload
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     android.hardware.tetheroffload.config@1.0.vendor \
     android.hardware.tetheroffload.control@1.0.vendor
 
