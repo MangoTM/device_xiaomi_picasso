@@ -454,7 +454,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/qti_whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/qti_whitelist.xml
 
 # RenderScript
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0-impl
 
 # RIL

@@ -92,7 +92,7 @@ vendor.display.qdcm.disable_factory_mode=1
 vendor.display.qdcm.mode_combine=1
 vendor.gralloc.disable_ubwc=0
 ro.surface_flinger.max_frame_buffer_acquired_buffers=3
-#debug.hwui.renderer=opengl
+debug.hwui.renderer=opengl
 
 # Fingerprint
 persist.vendor.qfp=false
