@@ -1,2 +1,0 @@
-allow dexoptanalyzer dex2oat_exec:file execute;
-allow dexoptanalyzer dex2oat_exec:file { open read };

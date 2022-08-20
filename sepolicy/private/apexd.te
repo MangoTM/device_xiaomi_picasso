@@ -1,2 +1,0 @@
-allow apexd sysfs_io_sched_tuneable:file { read write };
-allow apexd sysfs_io_sched_tuneable:file { open };

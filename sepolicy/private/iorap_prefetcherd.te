@@ -1,2 +1,0 @@
-allow iorap_prefetcherd resourcecache_data_file:dir search;
-allow iorap_prefetcherd zygote_exec:file read;

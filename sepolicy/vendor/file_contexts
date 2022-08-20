@@ -2,7 +2,7 @@
 /dev/socket/audio_hw_socket         u:object_r:audio_socket:s0
 
 # Camera
-/mnt/vendor/persist/camera(/.*)?                                        u:object_r:camera_persist_file:s0
+/mnt/vendor/persist/camera(/.*)?                                        u:object_r:persist_camera_file:s0
 
 # Charger
 /vendor/bin/batterysecret                                       u:object_r:batterysecret_exec:s0
@@ -12,6 +12,7 @@
 /dev/elliptic(.*)?                                              u:object_r:ultrasound_device:s0
 /dev/goodix_fp                                                  u:object_r:fingerprint_device:s0
 /dev/ir_spi                                                     u:object_r:ir_device:s0
+/dev/ti-drv8846                                                 u:object_r:motor_device:s0
 /dev/xiaomi-touch                                               u:object_r:touchfeature_device:s0
 
 # EFS
@@ -38,47 +39,24 @@
 /mnt/vendor/dsp/fastrpc_shell_3                                         u:object_r:public_adsprpcd_file:s0
 
 # Graphics nodes
-/sys/devices/platform/soc/[a-f0-9]+.qcom,mdss_mdp/drm/card([0-3])+/card([0-3])+-DSI-1/panel_info        u:object_r:vendor_sysfs_graphics:s0
-/sys/devices/platform/soc/[a-f0-9]+.qcom,mdss_mdp/drm/card([0-3])+/card([0-3])+-DSI-1/dynamic_fps u:object_r:vendor_sysfs_graphics:s0
-/sys/devices/platform/soc/[a-f0-9]+.qcom,mdss_mdp/drm/card([0-3])+/card([0-3])+-DSI-1/smart_fps_value u:object_r:vendor_sysfs_graphics:s0
-/sys/devices/platform/soc/[a-f0-9]+.qcom,mdss_mdp/drm/card([0-3])+/card([0-3])+-DSI-1/disp_param        u:object_r:vendor_sysfs_graphics:s0
+/sys/devices/platform/soc/[a-z0-9]+.qcom,mdss_mdp/drm/card([0-3])+/card([0-3])+-DSI-1/panel_info        u:object_r:vendor_sysfs_graphics:s0
+/sys/devices/platform/soc/[a-z0-9]+.qcom,mdss_mdp/drm/card([0-3])+/card([0-3])+-DSI-1/disp_param        u:object_r:vendor_sysfs_graphics:s0
+/sys/devices/platform/soc/[a-z0-9]+.qcom,mdss_mdp/drm/card([0-3])+/card([0-3])+-DSI-1/hbm_status        u:object_r:vendor_sysfs_graphics:s0
 
 # Health
-#/sys/devices/platform/soc/soc:maxim_ds28e16/power_supply/batt_verify(/.*)?          u:object_r:sysfs_battery_supply:s0
-/sys/devices(/platform)?/soc/[a-f0-9]+.qcom,spmi/spmi-[0-9]/spmi0-0[0-9]/[a-f0-9]+.qcom,spmi:qcom,[a-z0-9]+@[0-9]:qcom,qpnp-smb[0-9]/power_supply/wireless(/.*)?    u:object_r:sysfs_wireless_supply:s0
+/sys/devices/platform/soc/soc:maxim_ds28e16/power_supply/batt_verify(/.*)?          u:object_r:sysfs_battery_supply:s0
 
 # LEDs
 /sys/devices/platform/soc/a84000.i2c/i2c-2/2-0064/leds(/.*)?                        u:object_r:sysfs_leds:s0
 /sys/devices/platform/soc/888000.i2c/i2c-6/6-0064/leds(/.*)?                        u:object_r:sysfs_leds:s0
 
+# Persist subsystem
+/mnt/vendor/persist/subsys(/.*)?                                        u:object_r:persist_subsys_file:s0
+
 # MAC
 /vendor/bin/nv_mac                                              u:object_r:vendor_wcnss_service_exec:s0
 /data/vendor/mac_addr(/.*)?                                     u:object_r:vendor_wifi_vendor_data_file:s0
 
-# Persist subsystem
-/mnt/vendor/persist/subsys(/.*)?                                        u:object_r:persist_subsys_file:s0
-
 # Thermal
 /vendor/bin/mi_thermald                                         u:object_r:mi_thermald_exec:s0
 /data/vendor/thermal(/.*)?                                      u:object_r:thermal_data_file:s0
-
-# Power
-#/vendor/bin/hw/android\.hardware\.power-service\.xiaomi-libperfmgr      u:object_r:hal_power_default_exec:s0
-
-# Sensors
-/sys/bus/iio/devices                                                                                                            u:object_r:vendor_sysfs_iio:s0
-/sys/devices/platform/us_prox.0/iio:device3(/.*)?                                                                               u:object_r:vendor_sysfs_iio:s0
-/sys/devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-02/c440000.qcom,spmi:qcom,pm8150b@2:vadc@3100/iio:device1(/.*)?        u:object_r:vendor_sysfs_iio:s0
-
-
-# SSR
-/sys/devices(/platform)?/soc/[a-z0-9\.:]+,[a-z0-9\-\_]+/subsys[0-9]+/name         u:object_r:vendor_sysfs_ssr:s0
-
-# Sys files (health)
-/sys/devices/platform/soc/c440000\.qcom\,spmi/spmi-0/spmi0-02/c440000\.qcom\,spmi\:qcom\,pm7250b\@2\:qpnp\,qg/power_supply/(?!.*wakeup\d+).*                                      u:object_r:vendor_sysfs_battery_supply:s0
-
-# Sys files (wakeup)
-/sys/devices(/platform)?/soc/(soc:gpio_keys|a600000.ssusb|soc:gpio_keys|18800000.qcom,icnss|88e0000.qcom,msm-eud)/wakeup/wakeup[0-9]+(/.*)? u:object_r:sysfs_wakeup:s0
-/sys/devices/virtual/diag/diag/wakeup[0-9]+(/.*)? u:object_r:sysfs_wakeup:s0
-/sys/devices/virtual/misc/(msm_wma|msm_amrwb|msm_ape|msm_aac|msm_alac|msm_g711mlaw|msm_qcelp|msm_multi_aac|msm_g711alaw|msm_evrc|msm_mp3|msm_wmapro|msm_amrnb|msm_amrwbplus)/wakeup[0-9]+(/.*)? u:object_r:sysfs_wakeup:s0
-/sys/devices/virtual/wakeup/wakeup[0-9]+(/.*)? u:object_r:sysfs_wakeup:s0

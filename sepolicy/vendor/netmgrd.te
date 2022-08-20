@@ -1,1 +1,1 @@
-allow vendor_netmgrd vendor_radio_prop:file rw_file_perms;
+get_prop(vendor_netmgrd, vendor_radio_prop)
