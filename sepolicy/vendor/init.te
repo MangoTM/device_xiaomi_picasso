@@ -14,3 +14,4 @@ allow vendor_init default_prop:file read;
 #!!!! This avc is allowed in the current policy
 allow vendor_init persist_debug_prop:file read;
 allow init sysfs:file open;
+allow init proc:file write;

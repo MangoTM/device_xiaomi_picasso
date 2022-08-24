@@ -37,3 +37,9 @@ allow untrusted_app proc_tty_drivers:file read;
 
 #!!!! This avc is allowed in the current policy
 allow untrusted_app qemu_sf_lcd_density_prop:file read;
+allow untrusted_app firmware_file:dir getattr;
+allow untrusted_app firmware_file:filesystem getattr;
+allow untrusted_app metadata_file:dir getattr;
+allow untrusted_app mnt_vendor_file:dir search;
+allow untrusted_app proc:file open;
+allow untrusted_app proc_tty_drivers:file open;
