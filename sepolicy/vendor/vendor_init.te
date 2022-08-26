@@ -1,0 +1,4 @@
+#allow vendor_init init_service_status_private_prop:file read;
+allow vendor_init power_prop:property_service set;
+allow vendor_init proc_dirty:file write;
+#dontaudit vendor_init init_service_status_private_prop:file { read };

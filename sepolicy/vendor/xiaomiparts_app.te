@@ -1,6 +1,13 @@
-binder_call(xiaomiparts_app, hal_touchfeature_default)
+# Allow xiaomiparts to read and write to vendor_sysfs_graphics
+r_dir_file(xiaomiparts_app, vendor_sysfs_graphics)
+
+allow xiaomiparts_app {
+    vendor_sysfs_graphics
+}:dir search;
+
+allow xiaomiparts_app {
+    vendor_sysfs_graphics
+}:file rw_file_perms;
+
+allow xiaomiparts_app hal_touchfeature_default:binder { call };
 allow xiaomiparts_app hal_touchfeature_hwservice:hwservice_manager { find };
-allow xiaomiparts_app overlay_service:service_manager { find };
-allow xiaomiparts_app content_capture_service:service_manager { find };
-allow xiaomiparts_app system_data_file:dir { search };
-allow xiaomiparts_app user_profile_root_file:dir { search };

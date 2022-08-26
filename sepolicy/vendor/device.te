@@ -5,3 +5,4 @@ type ir_device, dev_type;
 type motor_device, dev_type;
 type touchfeature_device, dev_type;
 type ultrasound_device, dev_type;
+type lirc_device, dev_type;

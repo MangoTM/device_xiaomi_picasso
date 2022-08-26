@@ -1,0 +1,7 @@
+allow untrusted_app_29 vendor_xdsp_device:chr_file { read open ioctl };
+get_prop(untrusted_app_29, vendor_persist_camera_prop)
+allow untrusted_app_29 zygote:unix_stream_socket getopt;
+allow untrusted_app_29 mnt_sdcard_file:lnk_file read;
+allow untrusted_app_29 postinstall_mnt_dir:dir getattr;
+allow untrusted_app_29 self:fifo_file ioctl;
+allow untrusted_app_29 vendor_sysfs_soc:dir search;
